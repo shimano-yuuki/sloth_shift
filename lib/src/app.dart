@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sloth_shift/src/screens/home.dart';
 import 'package:sloth_shift/src/screens/large.dart';
 import 'package:sloth_shift/src/screens/middle.dart';
 import 'package:sloth_shift/src/screens/small.dart';
@@ -27,23 +28,24 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const SlothShift(),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class SlothShift extends StatefulWidget {
+  const SlothShift({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<SlothShift> createState() => _SlothShiftState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _SlothShiftState extends State<SlothShift> {
   static const _screens = [
+    HomePage(),
     SmallPage(),
     MiddlePage(),
     LargePage(),
@@ -62,13 +64,43 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         body: _screens[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.black87,
           currentIndex: _selectedIndex,
+          unselectedItemColor: Colors.red,
           onTap: _onItemTapped,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'ホーム'),
-            BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'お気に入り'),
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-                icon: Icon(Icons.notifications), label: 'お知らせ'),
+              icon: SizedBox(
+                height: 50,
+                width: 50,
+                child: Image.asset('assets/images/home.png'),
+              ),
+              label: 'ホーム',
+            ),
+            BottomNavigationBarItem(
+              icon: SizedBox(
+                height: 50,
+                width: 50,
+                child: Image.asset('assets/images/small.png'),
+              ),
+              label: '弱火',
+            ),
+            BottomNavigationBarItem(
+              icon: SizedBox(
+                height: 50,
+                width: 50,
+                child: Image.asset('assets/images/middle.png'),
+              ),
+              label: '中火',
+            ),
+            BottomNavigationBarItem(
+              icon: SizedBox(
+                height: 50,
+                width: 50,
+                child: Image.asset('assets/images/large.png'),
+              ),
+              label: '強火',
+            ),
           ],
           type: BottomNavigationBarType.fixed,
         ));
