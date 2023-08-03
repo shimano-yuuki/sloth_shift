@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sloth_shift/src/screens/add.dart';
 
 class MiddlePage extends StatelessWidget {
   const MiddlePage({Key? key}) : super(key: key);
@@ -15,7 +16,10 @@ class MiddlePage extends StatelessWidget {
      ),
      floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Add your onPressed code here!
+           Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AddPage()),
+                  );
         },
         backgroundColor: Colors.black,
         child: const Icon(Icons.add_outlined,color: Colors.white,),
