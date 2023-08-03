@@ -6,6 +6,7 @@ class MiddlePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey,
       appBar: AppBar(
         title: const Text('予定一覧：中火',
         style: TextStyle(
@@ -16,8 +17,8 @@ class MiddlePage extends StatelessWidget {
         onPressed: () {
           // Add your onPressed code here!
         },
-        backgroundColor: Colors.redAccent,
-        child: const Icon(Icons.add_outlined),
+        backgroundColor: Colors.black,
+        child: const Icon(Icons.add_outlined,color: Colors.white,),
       ),
     );
   }
