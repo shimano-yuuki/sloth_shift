@@ -10,6 +10,19 @@ class AddPage extends StatefulWidget {
 class _AddPageState extends State<AddPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: Colors.grey,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+          iconTheme: IconThemeData(
+          color: Colors.red
+          )
+      ),
+      body: Column(
+        children: [
+          Text('予定を追加する')
+        ],
+      ),
+    );
   }
 }
