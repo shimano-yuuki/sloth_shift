@@ -66,7 +66,7 @@ class _SlothShiftState extends State<SlothShift> {
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.black87,
           currentIndex: _selectedIndex,
-          unselectedItemColor: Colors.red,
+          unselectedItemColor: Colors.white,
           onTap: _onItemTapped,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(

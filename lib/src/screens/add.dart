@@ -149,7 +149,6 @@ class _DropdownButtonMenuState extends State<DropdownButtonMenu> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
-      
       items: const[
         DropdownMenuItem(
           value: '弱火',
