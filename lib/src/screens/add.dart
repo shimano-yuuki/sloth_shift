@@ -39,12 +39,13 @@ class _AddPageState extends State<AddPage> {
 
           //レベルを選択
           const Padding(padding: 
-            EdgeInsets.only(left: 30),
+            EdgeInsets.only(left: 30,bottom: 10),
             child: Text('レベルを選択',
             style: TextStyle(color: Colors.white),
             ),
           ),
           Container(
+            height: 30,
             margin: EdgeInsets.only(left: 30, bottom: 10),
             decoration: BoxDecoration(
               color: Colors.white,
