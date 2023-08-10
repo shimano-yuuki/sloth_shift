@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 
 class AddPage extends StatefulWidget {
   const AddPage({super.key});
@@ -12,11 +13,13 @@ class _AddPageState extends State<AddPage> {
   String _selectedValue = '弱火';
   String _titleValue = '';
   String _detailValue = '';
+  DateTime _startDateTime = DateTime.now();
+  DateTime _endDateTime = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 91, 91, 91),
+      backgroundColor: const Color.fromARGB(255, 91, 91, 91),
       appBar: AppBar(
         backgroundColor: Colors.black,
         iconTheme: const IconThemeData(
@@ -39,9 +42,66 @@ class _AddPageState extends State<AddPage> {
                 ),
               ),
             ),
-            const Row(
-              children: [],
+
+            //開始日付を選択
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, right: 15, bottom: 20),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white, // background
+                      foregroundColor: Colors.black, // foreground
+                    ),
+                    onPressed: () {
+                      DatePicker.showDateTimePicker(
+                        context,
+                        showTitleActions: true,
+                        onConfirm: (dateTime) {
+                          print('Date Time confirmed: $dateTime');
+                          setState(() {
+                            _startDateTime = dateTime;
+                          });
+                        },
+                        currentTime: _startDateTime,
+                        locale: LocaleType.jp,
+                      );
+                    },
+                    child: Text('${_startDateTime.month}/${_startDateTime.day}  ${_startDateTime.hour}:${_startDateTime.minute}'),
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(bottom: 20),
+                  child: Text('〜',style: TextStyle(fontSize: 20,color: Colors.white)),
+                ),
+                //終了日付を設定
+                Padding(
+                  padding: const EdgeInsets.only(left: 15, bottom: 20),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white, // background
+                      foregroundColor: Colors.black, // foreground
+                    ),
+                    onPressed: () {
+                      DatePicker.showDateTimePicker(
+                        context,
+                        showTitleActions: true,
+                        onConfirm: (dateTime) {
+                          print('Date Time confirmed: $dateTime');
+                          setState(() {
+                            _endDateTime = dateTime;
+                          });
+                        },
+                        currentTime: _endDateTime,
+                        locale: LocaleType.jp,
+                      );
+                    },
+                    child: Text('${_endDateTime.month}/${_endDateTime.day}  ${_endDateTime.hour}:${_endDateTime.minute}'),
+                  ),
+                ),
+              ],
             ),
+
             //レベルを選択
             const Padding(
               padding: EdgeInsets.only(left: 30, bottom: 10),
@@ -52,8 +112,8 @@ class _AddPageState extends State<AddPage> {
             ),
             Container(
               height: 30,
-              margin: EdgeInsets.only(left: 30, bottom: 10),
-              decoration: BoxDecoration(
+              margin: const EdgeInsets.only(left: 30, bottom: 10),
+              decoration: const BoxDecoration(
                 color: Colors.white,
               ),
               child: DropdownButtonMenu(
@@ -65,6 +125,7 @@ class _AddPageState extends State<AddPage> {
                 },
               ),
             ),
+
             //予定のタイトル記入欄
             const Padding(
               padding: EdgeInsets.only(left: 30), //全方向にのパディング
@@ -112,6 +173,7 @@ class _AddPageState extends State<AddPage> {
                 ),
               ),
             ),
+
             //予定の詳細記入欄
             const Padding(
               padding: EdgeInsets.only(left: 30), //全方向にのパディング
@@ -154,9 +216,11 @@ class _AddPageState extends State<AddPage> {
                 ),
               ),
             ),
+
+            //追加ボタン
             Row(
               children: [
-                Container(width: 260,height: 230),
+                Container(width: 260, height: 184),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white, // background
@@ -165,13 +229,16 @@ class _AddPageState extends State<AddPage> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       // Form is valid, do something with the values
-                      // You can access _selectedValue, _titleValue, and _detailValue here
+                      // You can access _selectedValue, _titleValue, _detailValue, and _selectedDateTime here
+                      print('Start date and time: $_startDateTime');
+                      print('End date and time: $_endDateTime');
                       print('Selected value: $_selectedValue');
                       print('Title value: $_titleValue');
                       print('Detail value: $_detailValue');
                     }
+                    Navigator.of(context).pop();
                   },
-                  child: Text('追加する'),
+                  child: const Text('追加する'),
                 ),
               ],
             ),
