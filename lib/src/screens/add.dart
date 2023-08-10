@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 
@@ -189,13 +190,19 @@ class _AddPageState extends State<AddPage> {
               padding: const EdgeInsets.only(top: 10, right: 30, left: 30),
               child: TextFormField(
                 maxLines: 6,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return '詳細を記入してください';
+                  }
+                  return null;
+                },
                 onChanged: (value) {
                   setState(() {
                     _detailValue = value;
                   });
                 },
                 decoration: InputDecoration(
-                  hintText: '詳細を記入してください (任意)',
+                  hintText: '詳細を記入してください (必須)',
                   hintStyle: const TextStyle(fontSize: 10),
                   // 未選択時の枠線
                   enabledBorder: OutlineInputBorder(
@@ -220,24 +227,24 @@ class _AddPageState extends State<AddPage> {
             //追加ボタン
             Row(
               children: [
-                Container(width: 260, height: 184),
+                Container(width: 260, height: 150),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white, // background
                     foregroundColor: Colors.black, // foreground
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     if (_formKey.currentState!.validate()) {
-                      // Form is valid, do something with the values
-                      // You can access _selectedValue, _titleValue, _detailValue, and _selectedDateTime here
-                      print('Start date and time: $_startDateTime');
-                      print('End date and time: $_endDateTime');
-                      print('Selected value: $_selectedValue');
-                      print('Title value: $_titleValue');
-                      print('Detail value: $_detailValue');
-                    }
+                    await FirebaseFirestore.instance.collection('users').add({
+                      'startTime': '$_startDateTime',
+                      'endTime': '$_endDateTime',
+                      'level': '$_selectedValue',
+                      'title': '$_titleValue',
+                      'detail': '$_detailValue',
+                    });
+                
                     Navigator.of(context).pop();
-                  },
+                  }},
                   child: const Text('追加する'),
                 ),
               ],
