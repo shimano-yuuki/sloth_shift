@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "156552450742",
+    "project_id": "sloth-shift",
+    "storage_bucket": "sloth-shift.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156552450742:android:8af363c7714c3e05564c17",
+        "android_client_info": {
+          "package_name": "com.example.sloth_shift"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156552450742-vv8h3sia0d2trksm61ab2kgs1a0dtljh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxSeDzvLkcGnKdpkLnH7ShYeW5CoaPObE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156552450742-vv8h3sia0d2trksm61ab2kgs1a0dtljh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "156552450742-o67msrih7sfbu26n5ksi38nsg838g7ms.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.slothShift"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
