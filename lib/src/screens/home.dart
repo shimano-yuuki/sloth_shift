@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sloth_shift/src/screens/add.dart';
+import 'package:sloth_shift/src/screens/login_page.dart'; // ログインページのインポート
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,22 +9,34 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
-        title: const Text('予定一覧',
+        title: const Text(
+          '予定一覧',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.black,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => LoginPage()), // ログインページに遷移
+              );
+            },
+            icon: const Icon(Icons.login), // ログインアイコン
+          ),
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => AddPage()),
-          );
-        },
-        backgroundColor: Colors.black,
-        child: const Icon(
-          Icons.add_outlined,
-          color: Colors.white,
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => LoginPage()), // ログインページに遷移
+            );
+          },
+          child: const Text('ログイン'), // ボタンのテキスト
         ),
       ),
     );
