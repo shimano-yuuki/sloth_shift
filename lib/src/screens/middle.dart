@@ -20,7 +20,6 @@ class MiddlePage extends StatelessWidget {
           itemCount: TemporaryList.length,
           itemBuilder: (BuildContext, index) {
             return Container(
-              padding: const EdgeInsets.all(2),
               color: Colors.black,
               child: ListTile(
                 title: Text('${TemporaryList[index]}',
