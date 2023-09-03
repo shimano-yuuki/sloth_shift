@@ -6,7 +6,7 @@ class MiddlePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> TemporaryList = ['朝ごはん', '昼ごはん', '夜ご飯'];
+    final List TemporaryList = <String>['朝ごはん','昼ごはん','夜ご飯'];
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
@@ -18,17 +18,16 @@ class MiddlePage extends StatelessWidget {
       body: Container(
         child: ListView.builder(
           itemCount: TemporaryList.length,
-          itemBuilder: (BuildContext, index) {
-            return Container(
-              color: Colors.black,
+          itemBuilder: (context, index) {
+            return Card(
               child: ListTile(
-                title: Text('${TemporaryList[index]}',
-                style: TextStyle(color: Colors.white),),
-              )
+                title: Text(TemporaryList[index]),
+              ),
             );
           }
         ),
       ),
+      //追加ボタン addページに移動
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
