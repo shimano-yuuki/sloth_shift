@@ -29,28 +29,34 @@ class _SignUpPageState extends State<SignUpPage> {
           children: [
             TextField(
               controller: _emailController,
-              decoration: InputDecoration(labelText: 'Email'),
+              decoration: InputDecoration(labelText: 'メール', fillColor: Colors.white,filled: true,),
             ),
             SizedBox(height: 16.0),
             TextField(
               controller: _passwordController,
               obscureText: true,
-              decoration: InputDecoration(labelText: 'Password'),
+              decoration: InputDecoration(labelText: 'パスワード', fillColor: Colors.white,filled: true,),
             ),
             SizedBox(height: 40.0),
             Row(
               children: [
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black
+                  ),
                   onPressed: () {
                     String email = _emailController.text;
                     String password = _passwordController.text;
                   },
-                  child: Text('新規登録'),
+                  child: Text('新規登録',style: TextStyle(color: Colors.white),),
                 ),
                 SizedBox(
                   width: 30,
                 ),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black
+                  ),
                   onPressed: () {
                     String email = _emailController.text;
                     String password = _passwordController.text;
@@ -59,7 +65,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       MaterialPageRoute(builder: (context) => SlothShift()),
                     );
                   },
-                  child: Text('ログイン'),
+                  child: Text('ログイン',style: TextStyle(color: Colors.white),),
                 ),
               ],
 
