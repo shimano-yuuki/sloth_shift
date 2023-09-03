@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sloth_shift/src/screens/login_page.dart'; // ログインページのインポート
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
