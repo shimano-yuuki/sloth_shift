@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'bottom_navigation.dart';
+
 class SignUpPage extends StatefulWidget {
   @override
   _SignUpPageState createState() => _SignUpPageState();
@@ -52,6 +54,10 @@ class _SignUpPageState extends State<SignUpPage> {
                   onPressed: () {
                     String email = _emailController.text;
                     String password = _passwordController.text;
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SlothShift()),
+                    );
                   },
                   child: Text('ログイン'),
                 ),
