@@ -12,10 +12,15 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey,
       appBar: AppBar(
-        title: Text('Sign Up'),
+        title: const Text('新規登録画面',
+          style: TextStyle(
+              color: Colors.white,fontWeight: FontWeight.bold),),
+        backgroundColor: Colors.black,
       ),
-      body: Padding(
+      body:
+      Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -35,11 +40,8 @@ class _SignUpPageState extends State<SignUpPage> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // ここにサインアップロジックを追加します
                     String email = _emailController.text;
                     String password = _passwordController.text;
-                    // この情報を使用してサインアップを行う処理を追加してください
-                    // 例：Firebase Authenticationを使用したサインアップ
                   },
                   child: Text('新規登録'),
                 ),
@@ -48,15 +50,13 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    // ここにサインアップロジックを追加します
                     String email = _emailController.text;
                     String password = _passwordController.text;
-                    // この情報を使用してサインアップを行う処理を追加してください
-                    // 例：Firebase Authenticationを使用したサインアップ
                   },
                   child: Text('ログイン'),
                 ),
               ],
+
             ),
           ],
         ),
