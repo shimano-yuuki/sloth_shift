@@ -14,31 +14,8 @@ class HomePage extends StatelessWidget {
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.black,
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => LoginPage()), // ログインページに遷移
-              );
-            },
-            icon: const Icon(Icons.login), // ログインアイコン
-          ),
-        ],
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => LoginPage()), // ログインページに遷移
-            );
-          },
-          child: const Text('ログイン'), // ボタンのテキスト
-        ),
-      ),
+      body: Container()
     );
   }
 }
