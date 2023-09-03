@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sloth_shift/src/screens/home.dart';
 import 'package:sloth_shift/src/screens/large.dart';
 import 'package:sloth_shift/src/screens/middle.dart';
+import 'package:sloth_shift/src/screens/sign_up.dart';
 import 'package:sloth_shift/src/screens/small.dart';
 
 class MyApp extends StatelessWidget {
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         useMaterial3: true,
       ),
-      home: const SlothShift(),
+      home: SignUpPage(),
     );
   }
 }
