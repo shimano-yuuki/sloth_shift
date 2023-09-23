@@ -10,3 +10,4 @@ Future<void> main() async { // main 関数でも async が使えます
   );
   runApp(const MyApp());
 }
+
