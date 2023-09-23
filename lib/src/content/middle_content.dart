@@ -7,16 +7,14 @@ class MiddleContent {
     //　ドキュメントの持っているフィールド'title'をこのBookのフィールドtitleに代入
     title = doc['title'];
     detail = doc['detail'];
-    start_time = doc['start_time'];
-    DateTime start_datetime = start_time.toDate();
-    end_time = doc['end_time'];
-    DateTime end_datetime = end_time.toDate();
+    start_time = doc['startTime'];
+    end_time = doc['endTime'];
     level = doc['level'];
   }
   // Bookで扱うフィールドを定義しておく。
   late String title;
   late String detail;
-  late Timestamp start_time;
-  late Timestamp end_time;
+  late String start_time;
+  late String end_time;
   late String level;
 }

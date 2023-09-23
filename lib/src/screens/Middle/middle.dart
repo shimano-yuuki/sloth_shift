@@ -1,19 +1,17 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:sloth_shift/src/content/middle_content.dart';
 import 'package:sloth_shift/src/screens/add.dart';
 import 'package:sloth_shift/src/model/middle_model.dart';
 import 'package:provider/provider.dart';
-import 'package:sloth_shift/src/content/middle_content.dart';
 
-List<DocumentSnapshot> documentList = [];
+import 'middle_detail.dart';
 
 class MiddlePage extends StatelessWidget {
   const MiddlePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: ChangeNotifierProvider<MainModel>(
+    return ChangeNotifierProvider<MainModel>(
         create: (_) => MainModel()..fetchContent(),
         child: Scaffold(
           backgroundColor: Colors.grey,
@@ -32,7 +30,16 @@ class MiddlePage extends StatelessWidget {
                   return Card(
                     child: InkWell(
                       onTap: () {
-                        print(DateTime.now());
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => MiddleDetailPage(
+                            detail: content[index].detail,
+                            endTime: content[index].end_time,
+                            level: content[index].level,
+                            startTime: content[index].start_time,
+                            title: content[index].title,
+                          )),
+                        );
                       },
                       child: ListTile(
                         title: Row(
@@ -52,14 +59,15 @@ class MiddlePage extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AddPage()),
+                MaterialPageRoute(builder: (context) => AddPage(
+
+                )),
               );
             },
             backgroundColor: Colors.black,
             child: const Icon(Icons.add_outlined,color: Colors.white,),
           ),
         ),
-      )   
-    );
+      );
   }
 }
