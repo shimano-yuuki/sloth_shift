@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sloth_shift/src/content/middle_content.dart';
 import 'package:sloth_shift/src/screens/add.dart';
 import 'package:sloth_shift/src/model/middle_model.dart';
 import 'package:provider/provider.dart';
@@ -14,12 +13,12 @@ class MiddlePage extends StatelessWidget {
     return ChangeNotifierProvider<MainModel>(
         create: (_) => MainModel()..fetchContent(),
         child: Scaffold(
-          backgroundColor: Colors.grey,
+          backgroundColor: Color.fromARGB(255, 91, 91, 91),
           appBar: AppBar(
             title: const Text('予定一覧：中火',
             style: TextStyle(
               color: Colors.white,fontWeight: FontWeight.bold),),
-            backgroundColor: Colors.black,
+            backgroundColor: Color.fromARGB(255, 28, 23, 23),
           ),
           body: Consumer<MainModel>(
             builder: (context, model, child) {
@@ -27,34 +26,42 @@ class MiddlePage extends StatelessWidget {
               return ListView.builder(
                 itemCount: content.length,
                 itemBuilder: (context, index) {
-                  return Card(
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => MiddleDetailPage(
-                            detail: content[index].detail,
-                            endTime: content[index].end_time,
-                            level: content[index].level,
-                            startTime: content[index].start_time,
-                            title: content[index].title,
-                          )),
-                        );
-                      },
-                      child: ListTile(
-                        title: Row(
-                          children: [
-                            Text(content[index].title),
-                          ],
+                  return Column(
+                    children: [
+                      SizedBox(height: 10),
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: 25),
+                        child: Card(
+                          color: Color.fromARGB(255, 31, 31, 31),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => MiddleDetailPage(
+                                    detail: content[index].detail,
+                                    endTime: content[index].end_time,
+                                    level: content[index].level,
+                                    startTime: content[index].start_time,
+                                    title: content[index].title,
+                                  )),
+                                );
+                              },
+                              child: ListTile(
+                                title: Row(
+                                  children: [
+                                    Text(content[index].title,style: TextStyle(color: Colors.white),),
+                                  ],
+                                ),
+                              ),
+                            )
                         ),
                       ),
-                    )
+                    ],
                   );
                 }
               );
             },
           ),
-          //追加ボタン addページに移動
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               Navigator.push(
@@ -65,7 +72,7 @@ class MiddlePage extends StatelessWidget {
               );
             },
             backgroundColor: Colors.black,
-            child: const Icon(Icons.add_outlined,color: Colors.white,),
+            child: const Icon(Icons.add_outlined,color: Colors.white),
           ),
         ),
       );
