@@ -37,7 +37,7 @@ class _AddPageState extends State<AddPage> {
               ),
               onPressed: () async {
                 if (_formKey.currentState!.validate()) {
-                await FirebaseFirestore.instance.collection('users').add({
+                await FirebaseFirestore.instance.collection('users').doc('UID').collection('middle').add({
                   'startTime': '$_startDateTime',
                   'endTime': '$_endDateTime',
                   'level': '$_selectedValue',
@@ -257,6 +257,7 @@ class _AddPageState extends State<AddPage> {
     );
   }
 }
+
 
 //ドロップダウンメニュー
 class DropdownButtonMenu extends StatelessWidget {
