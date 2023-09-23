@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sloth_shift/src/screens/home.dart';
 import 'package:sloth_shift/src/screens/large.dart';
-import 'package:sloth_shift/src/screens/middle.dart';
+import 'package:sloth_shift/src/screens/Middle/middle.dart';
 import 'package:sloth_shift/src/screens/small.dart';
 
 class SlothShift extends StatefulWidget {
