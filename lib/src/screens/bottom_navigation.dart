@@ -32,7 +32,7 @@ class _SlothShiftState extends State<SlothShift> {
     return Scaffold(
         body: _screens[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.black87,
+          backgroundColor: Color.fromARGB(255, 28, 23, 23),
           currentIndex: _selectedIndex,
           unselectedItemColor: Colors.white,
           onTap: _onItemTapped,
