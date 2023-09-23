@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 class MiddleDetailPage extends StatelessWidget {
-   MiddleDetailPage({
+   const MiddleDetailPage({
     super.key,
     required this.detail,
     required this.endTime,
@@ -12,26 +12,82 @@ class MiddleDetailPage extends StatelessWidget {
   final String detail;
   final String endTime;
   final String level;
-  String startTime;
+  final String startTime;
   final String title;
 
 
 
   @override
   Widget build(BuildContext context) {
-    DateTime dateTime = DateTime.parse(startTime);
+    DateTime start = DateTime.parse(startTime);
+    DateTime end = DateTime.parse(endTime);
     return Scaffold(
-      backgroundColor: Colors.grey,
+        backgroundColor: const Color.fromARGB(255, 91, 91, 91),
       appBar: AppBar(
         title: Text(title,style: TextStyle(
             color: Colors.white,fontWeight: FontWeight.bold),),
       backgroundColor: Colors.black,
+        iconTheme: const IconThemeData(
+          color: Colors.red,
+        ),
+        actions:  [
+          InkWell(child: Icon(Icons.delete),
+            onTap: (){
+            showAlertDialog(context);},
+          ),
+        ],
     ),
-      body: Column(
+      body: Container(
+        margin: EdgeInsets.symmetric(horizontal: 60),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(dateTime.day as String)
+      SizedBox(height: 50),
+        Text("${start.month}/${start.day}",
+          style: const TextStyle(fontSize: 40,color: Colors.white)
+          ),
+        SizedBox(height: 10),
+        Text("${start.hour}"+":"+"${start.minute}"+"〜"+"${end.hour}"+":"+"${end.minute}",
+            style: const TextStyle(fontSize: 25,color: Colors.white)
+        ),
+      SizedBox(height:10),
+      Text(detail,
+          style: const TextStyle(fontSize: 20,color: Colors.white
+          )
+      )
     ],
-    )
+    ),
+      )
     );
   }
 }
+
+void showAlertDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return SimpleDialog(
+        title: Text('削除の確認'),
+        children: [
+          SimpleDialogOption(
+            child: Text('削除'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+          SimpleDialogOption(
+            child: Text('キャンセル'),
+            onPressed: () {
+              Navigator.pop(context, '2が選択されました');
+            },
+          )
+        ],
+      );
+    },
+  );
+}
+
+
+
+
+
