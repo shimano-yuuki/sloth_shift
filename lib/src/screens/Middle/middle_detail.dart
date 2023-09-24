@@ -73,12 +73,13 @@ void showAlertDialog(BuildContext context) {
             child: Text('削除'),
             onPressed: () {
               Navigator.of(context).pop();
+              Navigator.of(context).pop();
             },
           ),
           SimpleDialogOption(
             child: Text('キャンセル'),
             onPressed: () {
-              Navigator.pop(context, '2が選択されました');
+              Navigator.of(context).pop();
             },
           )
         ],
