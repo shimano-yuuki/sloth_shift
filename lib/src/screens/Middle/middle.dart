@@ -86,7 +86,7 @@ class MiddlePage extends StatelessWidget {
               MaterialPageRoute(builder: (context) => AddPage()),
             );
           },
-          backgroundColor: Colors.black,
+          backgroundColor: Color.fromARGB(255, 28, 23, 23),
           child: const Icon(Icons.add_outlined, color: Colors.white),
         ),
       ),
