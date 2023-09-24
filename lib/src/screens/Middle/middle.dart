@@ -49,7 +49,9 @@ class MiddlePage extends StatelessWidget {
                               child: ListTile(
                                 title: Row(
                                   children: [
-                                    Text(content[index].title,style: TextStyle(color: Colors.white),),
+                                    Text(content[index].title,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(color: Colors.white),),
                                   ],
                                 ),
                               ),
@@ -62,6 +64,7 @@ class MiddlePage extends StatelessWidget {
               );
             },
           ),
+
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               Navigator.push(

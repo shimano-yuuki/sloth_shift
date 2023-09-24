@@ -37,7 +37,7 @@ class _AddPageState extends State<AddPage> {
               ),
               onPressed: () async {
                 if (_formKey.currentState!.validate()) {
-                await FirebaseFirestore.instance.collection('users').doc('UID').collection('middle').add({
+                await FirebaseFirestore.instance.collection('users').doc('UID').collection(_selectedValue).add({
                   'startTime': '$_startDateTime',
                   'endTime': '$_endDateTime',
                   'level': '$_selectedValue',
