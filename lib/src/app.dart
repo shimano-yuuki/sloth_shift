@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sloth_shift/src/screens/login.dart';
-// import 'package:sloth_shift/src/screens/sign_up.dart';
+
+import 'package:sloth_shift/src/screens/sign_up.dart';
 
 
 class MyApp extends StatelessWidget {
