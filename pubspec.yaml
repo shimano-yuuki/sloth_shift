@@ -41,6 +41,14 @@ dependencies:
   firebase_auth: ^4.7.2
   google_sign_in: ^6.1.4
   cloud_firestore: ^4.8.4
+  flutter_launcher_icons: ^0.13.1
+
+#  追加
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app_icon.png"
+
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +66,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
