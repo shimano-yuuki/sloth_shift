@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sloth_shift/src/screens/Strong/strong.dart';
 import 'package:sloth_shift/src/screens/Middle/middle.dart';
 import 'package:sloth_shift/src/screens/Small/small.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class SlothShift extends StatefulWidget {
   const SlothShift({Key? key}) : super(key: key);
@@ -28,27 +27,7 @@ class _SlothShiftState extends State<SlothShift> {
 
   @override
   Widget build(BuildContext context) {
-    final User? user = FirebaseAuth.instance.currentUser;
-    if (user == null) {
-      // ユーザーがログインしていない場合、ログイン画面に遷移
-      return Scaffold(
-        body: Center(
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        HomePage()), // LoginPage はログイン画面のクラス名に合わせて変更してください
-              );
-            },
-            child: Text('ログイン'),
-          ),
-        ),
-      );
-    } else {
-      // ユーザーがログイン済みの場合、選択された画面に遷移
-      return Scaffold(
+    return Scaffold(
         body: _screens[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Color.fromARGB(255, 28, 23, 23),
@@ -82,8 +61,6 @@ class _SlothShiftState extends State<SlothShift> {
             ),
           ],
           type: BottomNavigationBarType.fixed,
-        ),
-      );
-    }
+        ));
   }
 }
