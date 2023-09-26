@@ -10,8 +10,8 @@ class SmallPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<MainModel>(
-      create: (_) => MainModel()..fetchContent(),
+    return ChangeNotifierProvider<SmallModel>(
+      create: (_) => SmallModel()..fetchContent(),
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 91, 91, 91),
         appBar: AppBar(
@@ -21,7 +21,7 @@ class SmallPage extends StatelessWidget {
           ),
           backgroundColor: Color.fromARGB(255, 28, 23, 23),
         ),
-        body: Consumer<MainModel>(
+        body: Consumer<SmallModel>(
           builder: (context, model, child) {
             final content = model.content;
             return ListView.builder(
