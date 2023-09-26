@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sloth_shift/src/screens/large.dart';
+import 'package:sloth_shift/src/screens/Strong/strong.dart';
 import 'package:sloth_shift/src/screens/Middle/middle.dart';
 import 'package:sloth_shift/src/screens/Small/small.dart';
 
@@ -14,7 +14,7 @@ class _SlothShiftState extends State<SlothShift> {
   static const _screens = [
     SmallPage(),
     MiddlePage(),
-    LargePage(),
+    StrongPage(),
   ];
 
   int _selectedIndex = 0;
