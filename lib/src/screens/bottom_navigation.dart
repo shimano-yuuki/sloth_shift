@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sloth_shift/src/screens/home.dart';
 import 'package:sloth_shift/src/screens/large.dart';
 import 'package:sloth_shift/src/screens/Middle/middle.dart';
 import 'package:sloth_shift/src/screens/Small/small.dart';
@@ -13,7 +12,6 @@ class SlothShift extends StatefulWidget {
 
 class _SlothShiftState extends State<SlothShift> {
   static const _screens = [
-    HomePage(),
     SmallPage(),
     MiddlePage(),
     LargePage(),
@@ -37,14 +35,6 @@ class _SlothShiftState extends State<SlothShift> {
           unselectedItemColor: Colors.white,
           onTap: _onItemTapped,
           items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: SizedBox(
-                height: 50,
-                width: 50,
-                child: Image.asset('assets/images/home.png'),
-              ),
-              label: 'ホーム',
-            ),
             BottomNavigationBarItem(
               icon: SizedBox(
                 height: 50,
