@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:sloth_shift/src/content/small_content.dart';
 
-class MainModel extends ChangeNotifier {
+class SmallModel extends ChangeNotifier {
   List<SmallContent> content = [];
 
   Future<void> fetchContent() async {
