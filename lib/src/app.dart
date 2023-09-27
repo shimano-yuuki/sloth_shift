@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sloth_shift/src/screens/login.dart';
 // import 'package:sloth_shift/src/screens/sign_up.dart';
 
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   // This widget is the root of your application.
@@ -30,7 +29,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         useMaterial3: true,
       ),
-      home: SignUpPage(),
+      home: LoginPage(),
     );
   }
 }

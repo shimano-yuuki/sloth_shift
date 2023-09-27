@@ -3,6 +3,7 @@ import 'package:sloth_shift/src/screens/Strong/strong.dart';
 import 'package:sloth_shift/src/screens/Middle/middle.dart';
 import 'package:sloth_shift/src/screens/Small/small.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:sloth_shift/src/screens/login.dart';
 
 class SlothShift extends StatefulWidget {
   const SlothShift({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class _SlothShiftState extends State<SlothShift> {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        HomePage()), // LoginPage はログイン画面のクラス名に合わせて変更してください
+                        LoginPage()), // LoginPage はログイン画面のクラス名に合わせて変更してください
               );
             },
             child: Text('ログイン'),
