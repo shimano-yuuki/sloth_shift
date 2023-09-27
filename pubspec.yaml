@@ -78,7 +78,7 @@ flutter:
     - assets/images/middle.png
     - assets/images/large.png
     - assets/images/home.png
-
+    - assets/images/icon.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
